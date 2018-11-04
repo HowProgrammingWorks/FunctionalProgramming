@@ -34,25 +34,3 @@ const person = (name, born) => () => `${name} was born in ${born} ${era(born)}`;
 
 const marcus2 = person('Marcus Aurelius', 121, 'Roma');
 console.log(marcus2());
-
-// Object reflection
-
-const omap = (obj, fn) => Object.keys(obj)
-  .reduce((res, key) => {
-    const [prop, val] = fn(key, obj[key]);
-    res[prop] = val;
-    return res;
-  }, {});
-
-const marcus3 = {
-  firstName: 'Marcus',
-  middleName: 'Aurelius',
-  lastName: 'Antoninus',
-};
-
-const marcus4 = omap(marcus3, (key, val) => {
-  const prop = key.toLowerCase().replace('name', '');
-  const value = val.toUpperCase();
-  return [prop, value];
-});
-console.log(marcus4);
