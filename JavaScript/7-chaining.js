@@ -28,7 +28,7 @@ const adder = initial => Object.assign(
 const sum2 = adder(1)(9)(1)(7);
 console.log('Sum:', +sum2);
 
-// Functional
+// Functional methods
 
 const add = initial => ({
   add: value => add(initial + value),
