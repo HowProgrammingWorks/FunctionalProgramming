@@ -1,0 +1,22 @@
+
+  ┌───────────────┬──────────────────────────┬──────────────────────────┐
+  │               │ Imperative               │ Functional               │
+  ├───────────────┼──────────────────────────┼──────────────────────────┤
+  │ Control flow  │ Algorithm steps          │ Expression, Function     │
+  │ Identifiers   │ Assignment statement     │ Call arguments           │
+  │ State         │ Hold state in contexts   │ Stateless pure functions │
+  │ Branching     │ Conditional statement    │ Conditional expression   │
+  │ Iteration     │ Loops (for, while, do)   │ Recursion calls          │
+  │ Context       │ Object context           │ Closure, Functor, Monad  │
+  │ Instantiation │ New, Factory, Builder    │ Factory function         │
+  │ Pool reuse    │ Object pool              │ Pool, factory poolify    │
+  │ Inheritance   │ Classes and Prototypes   │ Compose, Partial, Curry  │
+  │ Virtual       │ Virtual classes, methods │ Function contracts       │
+  │ Field access  │ Getters and Setters      │ Lenses                   │
+  │ Boxing        │ Facade and Adapter       │ Wrappers and Closures    │
+  │ Extend        │ Mixin, Decorator         │ Map, Decorator           │
+  │ Asynchronity  │ Callback, Locking        │ Callback, Async compose  │
+  │ Async sugar   │ Observable, async/await  │ Promise, FutureContainer │
+  │ Caching       │ Hold cache in Hash Table │ Memoization              │
+  │ Chaining      │ Method returns object    │ Return function/object   │
+  └───────────────┴──────────────────────────┴──────────────────────────┘
