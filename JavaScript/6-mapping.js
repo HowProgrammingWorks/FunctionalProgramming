@@ -21,12 +21,10 @@ console.log(marcus2);
 
 // Functional
 
+const inst = (prev, prop, val) => ({ ...prev, [prop]: val });
+
 const omap = (obj, fn) => Object.keys(obj)
-  .reduce((res, key) => {
-    const [prop, val] = fn(key, obj[key]);
-    res[prop] = val;
-    return res;
-  }, {});
+  .reduce((prev, key) => inst(prev, ...fn(key, obj[key])), {});
 
 const marcus3 = {
   firstName: 'Marcus',
@@ -34,9 +32,9 @@ const marcus3 = {
   lastName: 'Antoninus',
 };
 
-const marcus4 = omap(marcus3, (key, val) => {
-  const prop = key.toLowerCase().replace('name', '');
-  const value = val.toUpperCase();
-  return [prop, value];
-});
+const marcus4 = omap(marcus3, (key, val) => [
+  key.toLowerCase().replace('name', ''),
+  val.toUpperCase()
+]);
+
 console.log(marcus4);
