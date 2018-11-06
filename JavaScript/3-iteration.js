@@ -1,6 +1,6 @@
 'use strict';
 
-// Call or recursion instead of for loops
+// Recursion calls instead of for loops
 
 const numbers = [2, 7, -1, -5, 8];
 

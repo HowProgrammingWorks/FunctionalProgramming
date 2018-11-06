@@ -1,6 +1,6 @@
 'use strict';
 
-// Calls instead of if statement
+// Conditional expression instead of Conditional statement
 
 const person = {
   name: 'Marcus Aurelius',
