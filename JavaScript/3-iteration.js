@@ -15,7 +15,7 @@ console.log();
 // Loop function
 
 const loop = (min, max, fn) => {
-  for (let i = 0; i < max; i++) fn(i);
+  for (let i = min; i < max; i++) fn(i);
 };
 
 loop(0, numbers.length, i => {
