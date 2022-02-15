@@ -24,7 +24,7 @@ const person = {
 // Functional
 
 {
-  const era = year => (year < 0 ? 'BC' : 'AD');
+  const era = (year) => (year < 0 ? 'BC' : 'AD');
   const { name, born } = person;
   const output = `${name} was born in ${born} ${era(born)}`;
   console.dir(output);

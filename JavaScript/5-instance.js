@@ -7,12 +7,15 @@
 const marcus1 = {
   name: 'Marcus Aurelius',
   born: 121,
+
   upperName() {
     this.name = this.name.toUpperCase();
   },
+
   get era() {
     return this.born < 0 ? 'BC' : 'AD';
   },
+
   toString() {
     return `${this.name} was born in ${this.born} ${this.era}`;
   },
@@ -29,7 +32,7 @@ console.log('Fields:', keys.join(', '));
 
 // Functional
 
-const era = year => (year < 0 ? 'BC' : 'AD');
+const era = (year) => (year < 0 ? 'BC' : 'AD');
 const person = (name, born) => () => `${name} was born in ${born} ${era(born)}`;
 
 const marcus2 = person('Marcus Aurelius', 121, 'Roma');

@@ -3,7 +3,7 @@
 // Arguments instead of mutable variables assignment
 
 const { PI, sqrt } = Math;
-const square = x => x * x;
+const square = (x) => x * x;
 
 // Imperative
 

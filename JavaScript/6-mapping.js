@@ -34,7 +34,7 @@ const marcus3 = {
 
 const marcus4 = omap(marcus3, (key, val) => [
   key.toLowerCase().replace('name', ''),
-  val.toUpperCase()
+  val.toUpperCase(),
 ]);
 
 console.log(marcus4);

@@ -18,7 +18,7 @@ const loop = (min, max, fn) => {
   for (let i = min; i < max; i++) fn(i);
 };
 
-loop(0, numbers.length, i => {
+loop(0, numbers.length, (i) => {
   const n = numbers[i];
   console.log(`Item ${i} is ${n}`);
 });
