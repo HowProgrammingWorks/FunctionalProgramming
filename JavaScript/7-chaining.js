@@ -22,13 +22,11 @@ console.log('Sum:', +sum1);
 
 // Functional
 
-const adder = (initial) => Object.assign(
-  (value) => adder(initial + value),
-  {
+const adder = (initial) =>
+  Object.assign((value) => adder(initial + value), {
     valueOf: () => initial,
     map: (log) => log(initial),
-  }
-);
+  });
 
 const sum2 = adder(1)(9)(1)(7);
 console.log('Sum:', +sum2);
