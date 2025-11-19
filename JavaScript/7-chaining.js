@@ -1,6 +1,6 @@
 'use strict';
 
-// Imperative
+// Imperative: Mutable state, class-based, method chaining
 
 class Adder {
   constructor(initial) {
@@ -20,24 +20,28 @@ class Adder {
 const sum1 = new Adder(1).add(9).add(1).add(7);
 console.log('Sum:', +sum1);
 
-// Functional
+// Functional: Immutable function composition
 
 const adder = (initial) =>
   Object.assign((value) => adder(initial + value), {
     valueOf: () => initial,
-    map: (log) => log(initial),
+    map: (f) => f(initial),
+    toString: () => String(initial),
   });
 
 const sum2 = adder(1)(9)(1)(7);
 console.log('Sum:', +sum2);
 sum2.map(console.log);
 
-// Functional methods
+// Enhanced functional methods with composition
 
 const add = (initial) => ({
   add: (value) => add(initial + value),
   valueOf: () => initial,
+  map: (f) => f(initial),
+  toString: () => String(initial),
 });
 
 const sum3 = add(1).add(9).add(1).add(7);
 console.log('Sum:', +sum3);
+console.log('String:', String(sum3));

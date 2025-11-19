@@ -1,11 +1,12 @@
 'use strict';
 
+// Pure Functions & Immutability
 // Arguments instead of mutable variables assignment
 
 const { PI, sqrt } = Math;
 const square = (x) => x * x;
 
-// Imperative
+// Imperative: Mutating objects, hidden dependencies
 
 const truncatedConeVolume = ({ height, r1, r2 }) => {
   const k = PI / 3;
@@ -29,6 +30,7 @@ const truncatedConeArea = ({ height, r1, r2 }) => {
 }
 
 // Functional
+// Pure functions, immutability, referential transparency
 
 const volume = (height, r1, r2) =>
   ((PI * height) / 3) * (square(r1) + r1 * r2 + square(r2));
@@ -39,18 +41,18 @@ const area = (height, r1, r2) =>
     square(r2) +
     sqrt(square(height) + square(r2 - r1)) * (r1 + r2));
 
-const cone = (height, r1, r2, volume, area) => ({
+const createCone = (height, r1, r2) => ({
   height,
   r1,
   r2,
-  volume,
-  area,
+  volume: volume(height, r1, r2),
+  area: area(height, r1, r2),
 });
 
-const calcCone = ({ height, r1, r2 }) =>
-  cone(height, r1, r2, volume(height, r1, r2), area(height, r1, r2));
+const calcCone = ({ height, r1, r2 }) => createCone(height, r1, r2);
 
 {
-  const cone = calcCone({ height: 7, r1: 10, r2: 15 });
-  console.dir(cone);
+  const cone1 = createCone(7, 10, 15);
+  const cone2 = calcCone(cone1);
+  console.dir({ cone1, cone2 });
 }

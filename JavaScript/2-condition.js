@@ -1,5 +1,6 @@
 'use strict';
 
+// Declarative Style & Pure Functions
 // Conditional expression instead of Conditional statement
 
 const person = {
@@ -9,6 +10,7 @@ const person = {
 };
 
 // Imperative
+// Step-by-step instructions, mutable variables
 
 {
   let output = `${person.born} `;
@@ -22,10 +24,13 @@ const person = {
 }
 
 // Functional
+// Declarative expressions, pure functions
 
 {
   const era = (year) => (year < 0 ? 'BC' : 'AD');
-  const { name, born } = person;
-  const output = `${name} was born in ${born} ${era(born)}`;
+  const formatBirthYear = (year) => `${year} ${era(year)}`;
+  const formatPersonInfo = (name, born) =>
+    `${name} was born in ${formatBirthYear(born)}`;
+  const output = formatPersonInfo(person.name, person.born);
   console.dir(output);
 }

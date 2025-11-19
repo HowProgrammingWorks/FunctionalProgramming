@@ -1,8 +1,8 @@
 'use strict';
 
-// Closure context instead of object context
+// Closure Context & Immutability
 
-// Imperative
+// Imperative: Mutable state, hidden state, side effects
 
 const marcus1 = {
   name: 'Marcus Aurelius',
@@ -17,7 +17,7 @@ const marcus1 = {
   },
 
   toString() {
-    return `${this.name} was born in ${this.born} ${this.era}`;
+    return `${this.name} was born in ${this.born} ${this.era} in ${this.city}`;
   },
 };
 
@@ -30,10 +30,16 @@ console.log(`${marcus1}`);
 const keys = Object.keys(marcus1);
 console.log('Fields:', keys.join(', '));
 
-// Functional
+// Functional: Immutable data, closure context, no hidden state
 
 const era = (year) => (year < 0 ? 'BC' : 'AD');
-const person = (name, born) => () => `${name} was born in ${born} ${era(born)}`;
 
-const marcus2 = person('Marcus Aurelius', 121, 'Roma');
-console.log(marcus2());
+const person = (name, born, city) => {
+  const _era = era(born);
+  const _name = name.toUpperCase();
+  const toString = () => `${_name} was born in ${born} ${_era} in ${city}`;
+  return { toString };
+};
+
+const marcus2 = person('Marcus Aurelius Antoninus', 121, 'Roma');
+console.log(`${marcus2}`);
